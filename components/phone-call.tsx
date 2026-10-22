@@ -9,8 +9,6 @@ type Kind = 'out' | 'in' | 'missed'
 type Recent = { name: string; kind: Kind; when: string }
 
 const recents: Recent[] = [
-  { name: LOVER, kind: 'out', when: '오전 12:41' },
-  { name: LOVER, kind: 'in', when: '오전 12:08' },
   { name: LOVER, kind: 'missed', when: '어제' },
   { name: LOVER, kind: 'out', when: '어제' },
   { name: '윤도현', kind: 'in', when: '어제' },
@@ -31,7 +29,6 @@ const recents: Recent[] = [
   { name: '윤도현', kind: 'missed', when: '일요일' },
   { name: LOVER, kind: 'in', when: '일요일' },
   { name: LOVER, kind: 'out', when: '일요일' },
-  { name: '정서윤', kind: 'in', when: '일요일' },
   { name: LOVER, kind: 'out', when: '일요일' },
 ]
 
