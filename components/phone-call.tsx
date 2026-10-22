@@ -107,9 +107,11 @@ export function CallScreen({ name, incoming, script, onEnd }: { name: string; in
     return () => clearInterval(t)
   }, [connected, ended])
 
+  const callerName = name === '내사랑 의리형' ? '이의리' : name
+
   if (ended) return <div className="call-screen is-ended">
     <div className="call-head">
-      <h2>{name}</h2>
+      <h2>{callerName}</h2>
       <p aria-live="polite">통화 종료됨.</p>
       <div className="call-avatar is-large"><UserRound size={64} fill="currentColor" strokeWidth={1} /></div>
     </div>
@@ -122,7 +124,7 @@ export function CallScreen({ name, incoming, script, onEnd }: { name: string; in
   return <div className="call-screen">
     <div className="call-head">
       <div className="call-avatar"><UserRound size={45} /></div>
-      <h2>{name}</h2>
+      <h2>{callerName}</h2>
       <p aria-live="polite">{status}</p>
     </div>
     {incoming && !connected
@@ -131,7 +133,7 @@ export function CallScreen({ name, incoming, script, onEnd }: { name: string; in
         <div><button className="call-btn is-accept" aria-label="응답" onClick={() => setConnected(true)}><Phone size={28} /></button><span>응답</span></div>
       </div>
       : <>
-        {script && connected && <div className="call-caption" aria-live="polite"><span>{name}</span><strong key={line}>{script[line]}</strong></div>}
+        {script && connected && <div className="call-caption" aria-live="polite"><span>{callerName}</span><strong key={line}>{script[line]}</strong></div>}
         <div className="call-actions">
           <button aria-pressed={muted} onClick={() => setMuted(v => !v)}>{muted ? <MicOff /> : <Mic />}<span>소리 끔</span></button>
           <button disabled><Grid3x3 /><span>키패드</span></button>
